@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,12 @@ Route::get('/parmums', function () {
 Route::get('/pasutit', function () {
     return view('order');
 });
+Route::get('/admincars', function () {
+    return view('AdminCars');
+});
+Route::get('/admin', [UserController::class, 'checkAdmin']);
+Route::get('/dashboard', [UserController::class, 'checkDashboard']);
 
 Route::get('cars', [CarController::class, 'show']);
 Route::get('car/{id}', [CarController::class, 'index']);
+Route::post("/dashboard", [UserController::class, 'dashboard']);
