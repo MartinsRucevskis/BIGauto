@@ -1,8 +1,8 @@
 <?php
-
+use App\Http\Controllers\CountryController;
+use App\Http\Controllers\CityController; 
+use App\Http\Controllers\MerchantController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CarController;
-use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,24 +15,14 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/cars', function () {
-    return view('master');
-});
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/parmums', function () {
-    return view('aboutus');
-});
-Route::get('/pasutit', function () {
-    return view('order');
-});
-Route::get('/admincars', function () {
-    return view('AdminCars');
-});
-Route::get('/admin', [UserController::class, 'checkAdmin']);
-Route::get('/dashboard', [UserController::class, 'checkDashboard']);
-
-Route::get('cars', [CarController::class, 'show']);
-Route::get('car/{id}', [CarController::class, 'index']);
-Route::post("/dashboard", [UserController::class, 'dashboard']);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::redirect('/', 'country'); 
+Route::resource('country', CountryController::class); 
+Route::resource('merchant', MerchantController::class, ['except' => ['index', 'create']]);
+Route::resource('city', CityController::class, ['except' => ['index', 'create']]);
+Route::get('city/country/{id}', [CityController::class, 'index']);
+Route::get('city/country/{id}/create', [CityController::class, 'create']); 
+Route::get('merchant/country/{id}/create', [MerchantController::class, 'create']); 
+Route::get('merchant/country/{id}', [MerchantController::class, 'index']);
