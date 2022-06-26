@@ -14,50 +14,46 @@
 <div style="margin: auto; width: 60%; padding: 10px;">
 <p>Kā šis strādā? Iesniedziet savu vēlamo auto, budžetu, auto....septiņu darba dienu laikā ar jums sazināsimies...
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<form>
+<form action="create/store" method="GET">
   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-    </div>
+    <div class="form-group">
+    <label for="inputAddress">Vārds</label>
+    <input type="text" name="Vards" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
   <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="inputAddress">Uzvārds</label>
+    <input type="text" name="Uzvards" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
   <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+    <label for="inputAddress">Numurs</label>
+    <input type="text" name="Numurs" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
+  <div class="form-group col-md-6">
+      <label for="inputEmail4">E-pasts</label>
+      <input type="email" name="Epasts" class="form-control" id="inputEmail4" placeholder="Email">
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
+  <div class="form-group">
+    <label for="inputAddress">Auto ražotājs</label>
+    <input type="text" name="Razotajs" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
   <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
+    <label for="inputAddress">Auto modelis</label>
+    <input type="text" name="Modelis" class="form-control" id="inputAddress" placeholder="1234 Main St">
   </div>
+  <div class="form-group">
+    <label for="inputAddress">Auto Gads</label>
+    <input type="text" name="Gads" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Budžets</label>
+    <input type="text" name="Budzets" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Vēlamā auto krāsa</label>
+    <input type="text" name="Krasa" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  </div>
+
   <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
 </div>

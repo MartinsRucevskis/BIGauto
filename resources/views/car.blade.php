@@ -14,7 +14,7 @@
     <?php $banda =  request()->route('id') ?>
     <?php $car = DB::select('SELECT * FROM cars WHERE pardots=0 AND id ='.$banda)?>
     <div>
-    <img class="rounded" width="100%" height="100%" src= {{$car[0]->Bilde}}>
+    <img class="rounded mt-2" width="1100px" height="600px" src= {{$car[0]->Bilde}}>
 
     <h1 class="mt-3">{{$car[0]->Razotajs." ".$car[0]->Modelis." ".$car[0]->Gads}}</h1>
     <hr class="my-12"/>

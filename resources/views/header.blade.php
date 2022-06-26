@@ -15,7 +15,7 @@
           <a class="nav-link" href="http://localhost:8080/lielaisdarbs/public/parmums">Par mums</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="http://localhost:8080/lielaisdarbs/public/pasutit">Pasūti auto</a>
+          <a class="nav-link" href="http://localhost:8080/lielaisdarbs/public/orders/create">Pasūti auto</a>
         </li>
       </ul>
     </div>

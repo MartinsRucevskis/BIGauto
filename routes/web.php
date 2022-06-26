@@ -1,8 +1,10 @@
 <?php
-use App\Http\Controllers\CountryController;
-use App\Http\Controllers\CityController; 
-use App\Http\Controllers\MerchantController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +17,50 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::redirect('/', 'country'); 
-Route::resource('country', CountryController::class); 
-Route::resource('merchant', MerchantController::class, ['except' => ['index', 'create']]);
-Route::resource('city', CityController::class, ['except' => ['index', 'create']]);
-Route::get('city/country/{id}', [CityController::class, 'index']);
-Route::get('city/country/{id}/create', [CityController::class, 'create']); 
-Route::get('merchant/country/{id}/create', [MerchantController::class, 'create']); 
-Route::get('merchant/country/{id}', [MerchantController::class, 'index']);
+Route::get('/cars', function () {
+    return view('master');
+});
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/parmums', function () {
+    return view('aboutus');
+});
+Route::get('/admincars', function () {
+    return view('AdminCars');
+});
+Route::get('/users', function () {
+    return view('adminUsers');
+});
+Route::get('/newuser', function () {
+    return view('newuser');
+});
+Route::get('/edituser/{id}', function () {
+    return view('edituser');
+});
+Route::get('/newcar', function () {
+    return view('newcar');
+});
+Route::get('/admin', [UserController::class, 'checkAdmin']);
+Route::get('/dashboard', [UserController::class, 'checkDashboard']);
+Route::get('/logout', [UserController::class, 'logout']);
+Route::get('/users/delete/{id}', [UserController::class, 'delete']);
+Route::get('cars', [CarController::class, 'show']);
+Route::get('newcar/create', [CarController::class, 'create']);
+Route::get('newuser/create', [UserController::class, 'create']);
+Route::get('car/{id}', [CarController::class, 'index']);
+Route::get('editcar/{id}', [CarController::class, 'indexAdmin']);
+Route::get('editcar/{id}/submit', [CarController::class, 'update']);
+Route::get('edituser/{id}/submit', [UserController::class, 'update']);
+Route::get('editcar/{id}/delete', [CarController::class, 'delete']);
+Route::post("/dashboard", [UserController::class, 'dashboard']);
+Route::get('orders', [OrdersController::class, 'index']);
+Route::get('orders/create', [OrdersController::class, 'create']);
+Route::get('orders/create/store', [OrdersController::class, 'store']);
+Route::get('orders/{order}', [OrdersController::class, 'show']);
+Route::put('orders/{order}', [OrdersController::class, 'update']);
+Route::get('orders/destroy/{order}', [OrdersController::class, 'destroy']);
+
+Route::get('acceptorder', [MailController::class, 'acceptMail']);
+Route::get('declineorder', [MailController::class, 'declineMail']);
+
