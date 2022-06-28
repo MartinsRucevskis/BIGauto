@@ -17,44 +17,44 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 <form action="create/store" method="GET">
   <div class="form-row">
     <div class="form-group">
-    <label for="inputAddress">Vārds</label>
-    <input type="text" name="Vards" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <label for="inputAddress" class="form-label">Vārds</label>
+    <input type="text" name="Vards" class="form-control" id="inputAddress" placeholder="Jūsu vārds" required=""  oninvalid="this.setCustomValidity('Lūdzu ievadiet savu vārdu')"  oninput="setCustomValidity('')">
   </div>
   <div class="form-group">
     <label for="inputAddress">Uzvārds</label>
-    <input type="text" name="Uzvards" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" name="Uzvards" class="form-control" id="inputAddress" placeholder="Jūsu uzvārds" required="" oninvalid="this.setCustomValidity('Lūdzu ievadiet savu uzvārdu')"  oninput="setCustomValidity('')">
   </div>
   <div class="form-group">
     <label for="inputAddress">Numurs</label>
-    <input type="text" name="Numurs" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="number" name="Numurs" class="form-control" id="inputAddress" placeholder="Jūsu telefona numurs" required oninvalid="this.setCustomValidity('Lūdzu ievadiet savu numuru')"  oninput="setCustomValidity('')">
   </div>
-  <div class="form-group col-md-6">
+  <div class="form-group">
       <label for="inputEmail4">E-pasts</label>
-      <input type="email" name="Epasts" class="form-control" id="inputEmail4" placeholder="Email">
+      <input type="email" name="Epasts" class="form-control" id="inputEmail4" placeholder="Jūsu e-pasts pa kuru sazināsimies" required oninvalid="this.setCustomValidity('Lūdzu ievadiet pareizu e-pasta adresi')"  oninput="setCustomValidity('')">
     </div>
   <div class="form-group">
     <label for="inputAddress">Auto ražotājs</label>
-    <input type="text" name="Razotajs" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" name="Razotajs" class="form-control" id="inputAddress" placeholder="BMW" required oninvalid="this.setCustomValidity('Lūdzu ievadiet auto ražotāju')"  oninput="setCustomValidity('')">
   </div>
   <div class="form-group">
     <label for="inputAddress">Auto modelis</label>
-    <input type="text" name="Modelis" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" name="Modelis" class="form-control" id="inputAddress" placeholder="530i" required oninvalid="this.setCustomValidity('Lūdzu ievadiet auto modeli')"  oninput="setCustomValidity('')">
   </div>
   <div class="form-group">
     <label for="inputAddress">Auto Gads</label>
-    <input type="text" name="Gads" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="number" min="1900" max="2030" name="Gads" class="form-control" id="inputAddress" placeholder="2009" required oninvalid="this.setCustomValidity('Lūdzu vēlamo auto gadu')"  oninput="setCustomValidity('')">
   </div>
   <div class="form-group">
     <label for="inputAddress">Budžets</label>
-    <input type="text" name="Budzets" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" name="Budzets" class="form-control" id="inputAddress" placeholder="8000" required oninvalid="this.setCustomValidity('Lūdzu ievadiet vēlamo budžetu')"  oninput="setCustomValidity('')">
   </div>
   <div class="form-group">
     <label for="inputAddress">Vēlamā auto krāsa</label>
-    <input type="text" name="Krasa" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    <input type="text" name="Krasa" class="form-control" id="inputAddress" placeholder="Melna/vienalga..." required oninvalid="this.setCustomValidity('Lūdzu ievadiet vēlamo auto krāsu')"  oninput="setCustomValidity('')">
   </div>
   </div>
 
-  <button type="submit" class="btn btn-primary">Sign in</button>
+  <button type="submit" class="btn btn-primary mt-3">Iesniegt</button>
 </form>
 </div>
 {{View::make('footer')}}

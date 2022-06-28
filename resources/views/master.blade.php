@@ -15,6 +15,7 @@
     <div class="border-top my-3"></div>
     <?php $count = 0 ?>
     @foreach($cars as $car)
+    @if($car->Pardots==0)
     @if($count % 5 == 0) <div class="row d-flex align-items-center justify-content-center p-0 m-0">
     @endif
     <?php $count++ ?>
@@ -32,6 +33,7 @@
         </div>
     </div>
     @if($count % 5 == 0) </div>
+    @endif
     @endif
     @endforeach
         {{View::make('footer')}}

@@ -35,7 +35,7 @@ class CarController extends Controller
         DB::table('cars')->where('id', $carId)->update(['Razotajs'=>$input['Razotajs'] ,'Modelis' => $input['Modelis'],
         'Gads' => $input['Gads'], 'Tilpums' => $input['Tilpums'], 'Vietas' => $input['Vietas'], 'Atrumkarba' => $input['Atrumkarba'], 'VinKods' => $input['VinKods'],
         'Atrumu_skaits' => $input['Atrumu_skaits'], 'Degviela' => $input['Degviela'], 'Cena' => $input['Cena'],
-        'Bilde' => $input['Bilde'], 'Piedzina' => $input['Piedzina'], 'Pardots' => $input['Pardots'], 'Apraksts' => $input['Apraksts']]);
+        'Bilde' => $input['Bilde'], 'Piedzina' => $input['Piedzina'], 'Pardots' => $input['Pardots'], 'Pirma_lapa' => $input['Pirma_lapa'], 'Apraksts' => $input['Apraksts']]);
         return redirect("/dashboard");}
         else return redirect("admin");
     }
@@ -46,7 +46,7 @@ class CarController extends Controller
         DB::table('cars')->insert(['Razotajs'=>$input['Razotajs'] ,'Modelis' => $input['Modelis'],
         'Gads' => $input['Gads'], 'Tilpums' => $input['Tilpums'], 'Vietas' => $input['Vietas'], 'Atrumkarba' => $input['Atrumkarba'], 'VinKods' => $input['VinKods'],
         'Atrumu_skaits' => $input['Atrumu_skaits'], 'Degviela' => $input['Degviela'], 'Cena' => $input['Cena'],
-        'Bilde' => $input['Bilde'], 'Piedzina' => $input['Piedzina'], 'Pardots' => $input['Pardots'], 'Apraksts' => $input['Apraksts']]);
+        'Bilde' => $input['Bilde'], 'Piedzina' => $input['Piedzina'], 'Pardots' => $input['Pardots'], 'Pirma_lapa' => $input['Pirma_lapa'] , 'Apraksts' => $input['Apraksts']]);
         return redirect("/dashboard");}
         else return redirect("admin");
     }

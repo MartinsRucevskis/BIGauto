@@ -13,7 +13,7 @@
 {{View::make('header')}}
 <div class="d-flex align-items-center justify-content-center">
     <?php $banda =  request()->route('id') ?>
-    <?php $car = DB::select('SELECT * FROM cars WHERE pardots=0 AND id ='.$banda)?>
+    <?php $car = DB::select('SELECT * FROM cars WHERE id ='.$banda)?>
     <div>
     <img class="rounded" width="100%" height="100%" src= {{$car[0]->Bilde}}>
 

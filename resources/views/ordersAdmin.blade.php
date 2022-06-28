@@ -66,17 +66,24 @@ $user = DB::select('SELECT * FROM users WHERE id='.$id);?>
             <li class="list-group-item">{{$order->Vards." ".$order->Uzvards}}</li>
             <li class="list-group-item">{{"Budžets: ".$order->Budzets}}</li>
             <li class="list-group-item">{{"Vēlamā krāsa: ".$order->Krasa}}</li>
+            <li class="list-group-item">{{"Vēlamais gads: ".$order->Gads}}</li>
             <li class="list-group-item">Tel: {{$order->Numurs}}</li>
             <li class="list-group-item">E-pasts: {{$order->Epasts}}</li>
+            <?php
+             if($order->Status==0) echo('<li class="list-group-item text-secondary">Status: <b>Neapstrādāts</b>');
+             if($order->Status==1) echo('<li class="list-group-item text-success">Status: <b>Apstiprināts</b>');
+             if($order->Status==2) echo('<li class="list-group-item text-danger">Status: <b>Noraidīts</b>');?></li> 
         </ul>
         <div class="card-body">
             <form action="acceptorder" class="row m-2">
                 <button type="submit"  class="btn btn-success">Pieņemt</button>
                 <input type="hidden" name="email" class="form-control" id="formGroupExampleInput" placeholder="Example input" value={{$order->Epasts}}>
+                <input type="hidden" name="id" class="form-control" id="formGroupExampleInput" placeholder="Example input" value={{$order->id}}>
             </form>
             <form action="declineorder" class="row m-2" >
                 <button type="submit"  class="btn btn-warning">Atteikt</button>
                 <input type="hidden" name="email" class="form-control" id="formGroupExampleInput" placeholder="Example input" value={{$order->Epasts}}>
+                <input type="hidden" name="id" class="form-control" id="formGroupExampleInput" placeholder="Example input" value={{$order->id}}>
             </form>
             <form action="orders/destroy/{{$order->id}}" method="get" class="row m-2">
                 <button type="submit"  class="btn btn-danger">Dzēst</button>

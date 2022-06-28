@@ -55,23 +55,26 @@ $user = DB::select('SELECT * FROM users WHERE id='.$id);?>
         <!-- <h1 class="display-1 text-center">Automašīnas</h1> -->
         <div class="row d-flex align-items-center justify-content-center p-0 m-0">
         <a href={{"http://localhost:8080/lielaisdarbs/public/newcar/"}} style="border-radius:0;" class="btn btn-primary d-flex align-items-center justify-content-center">Jauns Auto</a>
-    <?php $count = 0 ?>
+    <?php $count = 0; $pirmalapa=0 ?>
     <?php $cars = DB::select('SELECT * FROM cars')?>
     @foreach($cars as $car)
     @if($count % 3 == 0) <div class="row d-flex align-items-center justify-content-center p-0 m-0">
     @endif
-    <?php $count++ ?>
-    <div class="card m-3 p-0" style="width: 16rem; height:29rem">
+    <?php $count++?>
+    <div class="card m-3 p-0" style="width: 18rem; height:37rem">
         <img class="card-img-top img-fluid" style="height:30%; width:100%" src={{$car->Bilde}} alt={{$car->Razotajs." ".$car->Modelis }}>
         <div class="card-body">
         <ul class="list-group list-group-flush">
+            <?php if($car->Pirma_lapa==1 && $car->Pardots==0) $pirmalapa++ ?>
             <li class="list-group-item">{{$car->Razotajs}}</li>
             <li class="list-group-item">{{$car->Modelis}}</li>
             <li class="list-group-item">{{$car->Gads}}</li>
             <li class="list-group-item">{{$car->Atrumkarba}}</li>
             <li class="list-group-item">{{$car->Cena." €"}}</li>
+            <li class="list-group-item"><?php if ($car->Pardots==0) echo('<b class="text-success">Ir pārdošanā</b>'); else echo('<b class="text-danger">Pārdots</b>')?></li>
+            <li class="list-group-item"><?php if($car->Pardots==1 ) echo('<b class="text-danger">Pārdots, netiek rādīts</b>'); else if ($car->Pirma_lapa==0) echo('<b class="text-danger">Netiek rādīts pirmajā lapā</b>'); else if($car->Pirma_lapa==1 && $pirmalapa <=5 ) echo('<b class="text-success">Tiek rādīts pirmajā lapā</b>'); else echo('<b class="text-warning">Tiek rādīts, nav vieta</b>')?></li>
         </ul>
-        <a href={{"http://localhost:8080/lielaisdarbs/public/editcar/".$car->id}} class="btn btn-primary d-flex align-items-center justify-content-center">Reģidēt</a>
+        <a href={{"http://localhost:8080/lielaisdarbs/public/editcar/".$car->id}} class="btn btn-primary d-flex align-items-center justify-content-center mt-3">Reģidēt</a>
         <a href={{"http://localhost:8080/lielaisdarbs/public/editcar/".$car->id."/delete"}} class="btn btn-danger d-flex align-items-center justify-content-center mt-1">Dzēst</a>    
     </div>
     </div>

@@ -56,6 +56,7 @@ $user = DB::select('SELECT * FROM users WHERE id='.$id);?>
         </div>
 
     </div>
+    
 </div>
 </body>
 </html>

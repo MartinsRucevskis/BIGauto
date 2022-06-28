@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -51,9 +52,10 @@ class UserController extends Controller
     public function delete(Request $req){
         if(Auth::check()){
         $userId = request()->route('id') ;
-        $user = DB::table('users')->where("id", $userId);
-        if($user[0]->Limenis < Auth::user()->Limenis ){
-            DB::table('users')->where('id', $userId);
+        $users = DB::select('SELECT * FROM users WHERE id ='.$userId);
+        $user = $users[0];
+        if($user->Limenis < Auth::user()->Limenis ){
+            DB::table('users')->where('id', $userId)->delete();
         }
         return redirect("/dashboard");}
         else return redirect("/admin");
@@ -71,7 +73,7 @@ class UserController extends Controller
         if($user->Limenis < Auth::user()->Limenis || (Auth::user()->Limenis==2 && $user->Limenis==2) ){
         DB::table('users')->where('id', $userId)->update(['Vards'=>$input['Vards'] ,'Uzvards' => $input['Uzvards'],
         'Nummurs' => $input['Nummurs'], 'Bilde' => $input['Bilde'], 'email' => $input['email'], 'Limenis' => $input['Limenis']]);}
-        return redirect("/dashboard");}
+        return redirect("/dashboard"); }
         else return redirect("admin");
     }
 }
